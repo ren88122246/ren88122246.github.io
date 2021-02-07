@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      margin-top问题
+title:      margin\-top问题
 subtitle:    "\"制作一个自己想要的功能的应用\""
 date:       2021-02-07
 author:     Rick
@@ -41,41 +41,40 @@ tags:
 
 例如：我们现在有一个页面
 
+<div style="text-align: center">
+	<html>
+        <head>
+            <meta charset="utf-8">
+            <title>margin-top的问题</title>
+            <style type="text/css">
+                *{
+                    margin:0px;
+                    padding: 0px;
+                }
+                .outside{
+                    width:200px;
+                    height:200px;
+                    background-color: blue;
 
+                }
+                .inside{
+                    /*margin-top:20px;*/
+                    width:100px;
+                    height:100px;
+                    background-color: #000;
+                }
+            </style>
+        </head>
+        <body>
 
-<!DOCTYPE html>
-<html>
+           <div class="outside">
+               <div class="inside">
+               </div>
+           </div>
+        </body>
+    </html>
+</div>
 
-<head>
-    <meta charset="utf-8">
-    <title>margin-top的问题</title>
-    <style type="text/css">
-        *{
-            margin:0px;
-            padding: 0px;
-        }
-        .outside{
-            width:200px;
-            height:200px;
-            background-color: blue;
-
-        }
-        .inside{
-            /*margin-top:20px;*/
-            width:100px;
-            height:100px;
-            background-color: #000;
-        }
-    </style>
-</head>
-<body>
-
-   <div class="outside">
-       <div class="inside">
-       </div>
-   </div>
-</body>
-</html>
 
 
 
