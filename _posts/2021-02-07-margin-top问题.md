@@ -37,8 +37,7 @@ tags:
 
 所以为什么第一张卡片的margin-top就好像作用在了entrance这个class上呢？
 
-于是上网查找资料，找到了原因：**父元素的第一个子元素的上边距margin-top如果碰不到有效的border或者padding.就会不断一层一层的找自己“领导”(父元素，祖先元素)的麻烦。**
-
+于是上网查找资料，查到一篇讲解非常通透的文章.
 例如：我们现在有一个页面
 
 
@@ -117,7 +116,8 @@ tags:
 
 这个问题我在5大主浏览器上试过，发现均出现这种情况：然后上网查询，找到了一段对这个描述最清楚的解释。
 
-父元素的第一个子元素的上边距margin-top如果碰不到有效的border或者padding.就会不断一层一层的找自己“领导”(父元素，祖先元素)的麻烦。
+**父元素的第一个子元素的上边距margin-top如果碰不到有效的border或者padding.就会不断一层一层的找自己“领导”(父元素，祖先元素)的麻烦。**
+
 解决办法如下：
 
 ```
@@ -125,5 +125,7 @@ tags:
  2.或者设置padding-bottom:0.1px;
  3.给设置maigin-top的div设置overflow:hidden.
 ```
-
-本文部分引用: https://blog.csdn.net/liuxilei66/article/details/78219538
+于是我将自己的代码改为
+![](https://ren88122246.github.io/img/2021-02-07/08.png)
+问题解决!
+>本文部分转自：[《margin-top的问题》](http://blog.ibireme.com/2015/05/18/runloop/)
