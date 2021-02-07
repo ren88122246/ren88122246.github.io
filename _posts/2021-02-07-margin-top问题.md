@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      margin\-top问题
-subtitle:    "\"制作一个自己想要的功能的应用\""
+title:      margin-top 问题
+subtitle:   "\"制作一个自己想要的功能的应用\""
 date:       2021-02-07
 author:     Rick
 header-img: img/2021-02-07/title.jpg
@@ -41,43 +41,8 @@ tags:
 
 例如：我们现在有一个页面
 
-<div style="text-align: center">
-	<html>
-        <head>
-            <meta charset="utf-8">
-            <title>margin-top的问题</title>
-            <style type="text/css">
-                *{
-                    margin:0px;
-                    padding: 0px;
-                }
-                .outside{
-                    width:200px;
-                    height:200px;
-                    background-color: blue;
 
-                }
-                .inside{
-                    /*margin-top:20px;*/
-                    width:100px;
-                    height:100px;
-                    background-color: #000;
-                }
-            </style>
-        </head>
-        <body>
-
-           <div class="outside">
-               <div class="inside">
-               </div>
-           </div>
-        </body>
-    </html>
-</div>
-
-
-
-
+![](https://ren88122246.github.io/img/2021-02-07/05.png)
 ```
 <!DOCTYPE html>
 <html>
@@ -112,3 +77,53 @@ tags:
 </html>
 ```
 
+现在把magrin-top的注释取消：
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>margin-top的问题</title>
+    <style type="text/css">
+        *{
+            margin:0px;
+            padding: 0px;
+        }
+        .outside{
+            width:200px;
+            height:200px;
+            background-color: blue;
+
+        }
+        .inside{
+            margin-top:20px;
+            width:100px;
+            height:100px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+   <div class="outside">
+       <div class="inside">
+       </div>
+   </div>
+</body>
+</html>
+```
+![](https://ren88122246.github.io/img/2021-02-07/06.png)
+理论上应该是下面这种情况：
+![](https://ren88122246.github.io/img/2021-02-07/07.png)
+
+这个问题我在5大主浏览器上试过，发现均出现这种情况：然后上网查询，找到了一段对这个描述最清楚的解释。
+
+父元素的第一个子元素的上边距margin-top如果碰不到有效的border或者padding.就会不断一层一层的找自己“领导”(父元素，祖先元素)的麻烦。
+解决办法如下：
+
+```
+ 1.给外部div设置border-bottom:0.1px solid #000;
+ 2.或者设置padding-bottom:0.1px;
+ 3.给设置maigin-top的div设置overflow:hidden.
+```
+
+本文部分引用: https://blog.csdn.net/liuxilei66/article/details/78219538
